@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+:root {
+  --bg-color: #0d1117;
+  --card-color: rgba(22, 27, 34, 0.8);
+  --border-color: #30363d;
+  --text-color: #c9d1d9;
+  --primary-color: #58a6ff;
+  --green: #3fb950;
+  --yellow: #d29922;
+  --red: #f85149;
+}
+
+/* FIX 1: Set background to transparent to allow the constellation canvas to be visible */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: transparent; /* Changed from var(--bg-color) */
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  width: 90vw;
+  max-width: 1200px;
+  height: 80vh;
+  max-height: 700px;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.planet-container, .calculator-container {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make planet container relative for positioning child elements */
+.planet-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  cursor: grab;
+  position: relative; 
+}
+
+.calculator-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  overflow-y: auto;
+}
+
+h1, h2 {
+  margin-top: 0;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+}
+
+.total-footprint {
+  text-align: center;
+  margin-top: auto;
+}
+
+.total-footprint h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.total-footprint h2 span {
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.total-footprint p {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* --- BUTTON STYLES (CLEANED UP) --- */
+
+/* Container for the stacked buttons in the top right */
+.top-right-buttons {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem;
+}
+
+/* Style for the individual map/flight buttons */
+.map-button {
+  background-color: rgba(22, 27, 34, 0.8);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  backdrop-filter: blur(5px);
+  transition: background-color 0.2s;
+}
+
+.map-button:hover {
+  background-color: var(--border-color);
+}
+
+/* Style for the "Learn More" button */
+.learn-more-button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.learn-more-button:hover {
+  opacity: 1;
+  border-color: var(--primary-color);
+}
+
+
+/* --- HUB BUTTON (FIXED) --- */
+
+/* FIX 2: Removed the problematic z-index */
+.hub-button-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  /* z-index: 1001; was here and is now removed */
+}
+
+.hub-button {
+  background: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 5px 20px rgba(88, 166, 255, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.hub-button:hover {
+  transform: translateY(-3px);
+}

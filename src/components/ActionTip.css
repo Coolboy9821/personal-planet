@@ -1,0 +1,27 @@
+.tip-container {
+    margin-top: 1.5rem;
+    min-height: 60px; /* Reserve space to prevent layout shift */
+    width: 100%;
+  }
+  
+  .tip-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(88, 166, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+  }
+  
+  .tip-box svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+  }
+  
+  .tip-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-color);
+  }

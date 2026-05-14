@@ -1,0 +1,219 @@
+.hub-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-color);
+  z-index: 999;
+  padding: 3rem;
+  overflow-y: auto;
+  color: var(--text-color);
+}
+
+.hub-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.hub-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.hub-header h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.hub-header p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.grid-item h3 {
+  margin-top: 0;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.chart-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.chart-wrapper {
+  height: 300px;
+}
+
+.insights-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.insight-carousel {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.insight-card {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.insight-card h4 {
+  margin: 0 0 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+.insight-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+.insight-card.win { background-color: rgba(63, 185, 80, 0.15); border-left: 4px solid var(--green); }
+.insight-card.challenge { background-color: rgba(210, 153, 34, 0.15); border-left: 4px solid var(--yellow); }
+.insight-card.info { background-color: rgba(88, 166, 255, 0.15); border-left: 4px solid var(--primary-color); }
+.insight-card.fact { background-color: rgba(139, 88, 255, 0.15); border-left: 4px solid #8b58ff; }
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.insights-container:hover .nav-arrow { opacity: 1; }
+.nav-arrow.left { left: 10px; }
+.nav-arrow.right { right: 10px; }
+
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.dot.active {
+  background-color: var(--primary-color);
+}
+
+.learn-more-button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: auto;
+  opacity: 0.7;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+.learn-more-button:hover {
+  opacity: 1;
+  border-color: var(--primary-color);
+}
+
+.achievements-container {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0.4;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.achievement.unlocked {
+  opacity: 1;
+}
+.achievement.unlocked:hover {
+  transform: scale(1.05);
+}
+
+.achievement.unlocked .achievement-icon {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 0.5rem auto;
+  background: var(--bg-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--border-color);
+}
+
+.achievement p {
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.2;
+  max-width: 100px;
+}
+

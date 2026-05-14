@@ -1,0 +1,92 @@
+.wiki-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+  }
+  
+  .wiki-content {
+    position: relative;
+    width: 90%;
+    max-width: 700px; /* Narrower for a more article-like feel */
+    height: 85vh; /* Taller */
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column; /* Stacks content vertically */
+    overflow: hidden; /* Hide overflow initially */
+  }
+  
+  .wiki-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .wiki-close:hover {
+    opacity: 1;
+  }
+  
+  .wiki-article {
+    overflow-y: auto; /* Makes only the text content scrollable */
+    padding-right: 1rem; /* Space for the scrollbar */
+  }
+  
+  .wiki-article h2 {
+    font-size: 2.2rem;
+    color: white;
+    text-align: left;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .wiki-article h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    text-align: left;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .wiki-article p, .wiki-article li {
+    font-size: 1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+  }
+  .wiki-article ul {
+    padding-left: 20px;
+  }
+  .wiki-article li {
+    margin-bottom: 0.5rem;
+  }
+  .wiki-article li::marker {
+    color: var(--primary-color);
+  }
+  .wiki-article strong {
+    color: white;
+    font-weight: 600;
+  }
+  
+  .wiki-article blockquote {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--primary-color);
+    font-style: italic;
+    opacity: 0.8;
+  }
