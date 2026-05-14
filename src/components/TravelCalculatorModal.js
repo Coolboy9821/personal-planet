@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import L from 'leaflet';
+import { MapPin, Plane } from "lucide-react";
 import './Modal.css'; // We will create this file next
 
 // A custom component to handle map clicks
